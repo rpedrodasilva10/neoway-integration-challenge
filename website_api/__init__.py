@@ -24,6 +24,16 @@ class Company(Resource):
         # Converting to HTML
         return markdown.markdown(content)
 
+    @api.doc(
+        responses={
+            404: 'Resource not found',
+            200: 'Success',
+        },
+        params={
+            'company_name': 'Part of the company name text',
+            'zipcode': 'Company five digit text zipcode'
+        }
+    )
     def get(self):
         """Retrieves a specific resource"""
         conn = get_db()
@@ -48,6 +58,16 @@ class Company(Resource):
         else:
             return {'message': 'Resource not found', 'data': []}, 404
 
+    @api.doc(
+        responses={
+            400: 'Cannot process the given file',
+            200: 'Success',
+        },
+        params={
+            'csvpath': 'Csv filename to be processed',
+
+        }
+    )
     def post(self):
         """Sets the website column, based on a CSV file"""
         csvpath = request.args.get('csvpath', '')
@@ -60,6 +80,10 @@ class Company(Resource):
         """Updates website field from companies within the given csv"""
         conn = get_db()
         updated = []
+
+        if '.csv' not in csv_path:
+            return updated
+
         with open(csv_path) as f:
             csvFile = csv.reader(f, delimiter=";")
             for row in csvFile:
