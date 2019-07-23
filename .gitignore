@@ -2,4 +2,6 @@
 .vscode
 /tst.py
 /integration.db
-/__pycache__
+/__pycache__/
+
+

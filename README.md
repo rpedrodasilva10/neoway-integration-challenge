@@ -30,6 +30,7 @@ All responses will have the form:
 **Response**
 - `200 OK` - In success
 - `404 NOT FOUND` - When a resource is not found
+- `422 UNPROCESSABLE` - company_name and zipcode are required arguments
 
 
 ``` json
@@ -68,6 +69,7 @@ All responses will have the form:
 **Response**
 - `200 OK` - In success
 - `400 BAD REQUEST` - When the csv file is not valid
+
 
 
 ``` json
