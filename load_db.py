@@ -6,8 +6,8 @@ import os
 from sqlalchemy import create_engine
 
 
-def get_db():
-    db_name = "integration.db"
+def get_db(db_name="integration.db"):
+    """Create a connection with the datbase and populate the companies table"""
     if not os.path.isfile(db_name):
         db = create_engine('sqlite:///' + db_name)
         conn = db.connect()
@@ -39,5 +39,4 @@ def get_db():
     else:
         db = create_engine('sqlite:///' + db_name)
         conn = db.connect()
-
     return conn

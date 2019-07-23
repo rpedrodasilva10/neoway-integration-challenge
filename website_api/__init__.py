@@ -28,6 +28,7 @@ class Company(Resource):
         responses={
             404: 'Resource not found',
             200: 'Success',
+            422: 'company_name and zipcode are required arguments'
         },
         params={
             'company_name': 'Part of the company name text',
@@ -70,7 +71,11 @@ class Company(Resource):
     )
     def post(self):
         """Sets the website column, based on a CSV file"""
-        csvpath = request.args.get('csvpath', '')
+        csvpath = ""
+        if request.is_json:
+            json = request.get_json()
+            csvpath = json['csvpath']
+
         rv = self.set_website(csvpath)
         if len(rv) > 0:
             return {'message': 'Success', 'updated': rv}, 200
