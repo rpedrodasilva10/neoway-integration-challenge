@@ -46,14 +46,20 @@ All responses will have the form:
 }
 ```
 
-## Update the website column in the database
+## Update the website column in the database table companie
 
 
 **Definition**
 
 `POST /company`
 
-    http://localhost:5000/company?csvpath=q2_clientData.csv
+``` json
+{
+    "csvpath": "q2_clientData.csv"
+}
+
+```
+
 
 **Arguments**
 
