@@ -1,5 +1,13 @@
 # Website API 
 
+# Running the API
+
+On a Linux system with pip installed:
+
+    make run
+
+this comand will install all dependencies, run tests and the api.
+
 # API Usage
 
 All responses will have the form:

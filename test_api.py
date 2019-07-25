@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from website_api import app
+from flask import request, current_app as app
 
 
 TEST_DB = 'test.db'

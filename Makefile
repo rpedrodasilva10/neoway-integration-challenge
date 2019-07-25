@@ -1,13 +1,13 @@
 start: 
-#TODO: commands necessary to start the API
+	#commands necessary to start the API
 	python run.py
 check: 
-#TODO: include command to test the code and show the results
+	#include command to test the code and show the results
 	# to ignore deprecated warnings
 	pytest -W ignore
 
 setup: 
-#if needed to setup the enviroment before starting it
+	#if needed to setup the enviroment before starting it
 	pip install -r requirements.txt
 
 
