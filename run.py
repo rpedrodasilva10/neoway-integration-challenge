@@ -1,2 +1,6 @@
-from website_api import app
-app.run()
+from website_api import create_app
+
+app = create_app()
+
+if __name__ == "__main__":
+    app.run()
