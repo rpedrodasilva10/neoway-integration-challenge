@@ -75,9 +75,9 @@ class TestCompanyAPI(unittest.TestCase):
 
     def test_put_company_bad_csvfile(self):
         """Test POST company passing invalid csv file"""
-        #self.client.post('/company/data', json=dict(csvpath="q1_catalog.csv"))
+        self.client.post('/company/data', json=dict(csvpath="q1_catalog.csv"))
         csvPath = 'xd'
 
         response = self.client.put('/company', json=dict(csvpath=csvPath))
 
-        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.status_code, 404)

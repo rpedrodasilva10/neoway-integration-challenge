@@ -2,11 +2,19 @@
 
 # Running the API
 
-On a Linux system with pip installed:
+We recommend using this inside a virtual environment.
+
+On a Linux system:
+If you want to create one and use: 
+
+    virtualenv venv -p python3
+    source venv/bin/activate
+
+with pip installed:
 
     make run
 
-this comand will install all dependencies, run tests and the api.
+this comand will install all dependencies, run tests and start the api.
 
 # API Usage
 
