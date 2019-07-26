@@ -4,7 +4,7 @@ start:
 check: 
 	#include command to test the code and show the results
 	# to ignore deprecated warnings
-	pytest -W ignore
+	pytest --verbose --color=yes -W ignore
 
 setup: 
 	#if needed to setup the enviroment before starting it
