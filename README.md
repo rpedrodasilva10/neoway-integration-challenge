@@ -14,7 +14,7 @@ with pip installed:
 
     make run
 
-this comand will install all dependencies, run tests and start the api.
+this command will install all dependencies, run tests and start the API.
 
 # API Usage
 
@@ -81,9 +81,9 @@ All responses will have the form:
 - `"csvpath":str` - Name of the csv file to be processed
 
 **Responses**
-- `201 CREATED` - Success, companies added
+- `200 OK` - Success, companies added
 - `400 BAD REQUEST` - Cannot process the given file
-- `404 NOT FOUND` - File doesn't exists / There is no data to update in the datbase
+- `404 NOT FOUND` - File doesn't exist/ There is no data to update in the database
 
 
 ``` json
@@ -111,7 +111,7 @@ All responses will have the form:
 
 ```
 
-## Loads companies in tho the database, based on a CSV file
+## Loads companies into the database, based on a CSV file
 
 
 **Definition**
@@ -162,7 +162,7 @@ All responses will have the form:
 
 ```
 
-## Deletes all data from database
+## Deletes all data from the database
 
 
 **Definition**
@@ -175,7 +175,7 @@ All responses will have the form:
 - This endpoint takes no arguments
 
 **Responses**
-- `200 CREATED` - Success, database cleared
+- `200 OK` - Success, database cleared
 
 
 
