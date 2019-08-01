@@ -41,7 +41,7 @@ All responses will have the form:
 **Arguments**
 
 - `"company_name":str` - Company name
-- `"zipcode":str`- Fight digit text zipcode
+- `"zipcode":str`- Five digit text zipcode
 
 **Responses**
 - `200 OK` - In success (If zipcode or company_name are not passed, retrieves all companies)
