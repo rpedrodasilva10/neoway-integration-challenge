@@ -1,4 +1,3 @@
-
 import json
 
 from website_api.extensions import db
@@ -26,10 +25,13 @@ class Company(db.Model):
 
     def add_company(_name, _zipcode, _website=None):
         """Adds a company into database"""
-        company_obj = Company(
-            company_name=_name, zipcode=_zipcode, website=_website)
-        db.session.add(company_obj)
-        db.session.commit()
+        company_obj = None
+        # To validate that only a five digit zipcode will be inserted
+        if len(_zipcode.replace(' ', '')[: 5]) == 5:
+            company_obj = Company(
+                company_name=_name, zipcode=_zipcode, website=_website)
+            db.session.add(company_obj)
+            db.session.commit()
 
         return company_obj
 
