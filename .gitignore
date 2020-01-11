@@ -1,10 +1,7 @@
 /venv
 .vscode
-/tst.py
-/integration.db
-*/__pycache__/*
 *.db
 *.pyc
 *.cpython
 *.pytest_cache
-
+*/__pycache__/*
