@@ -139,25 +139,30 @@ class MockData(Resource):
 
         # Controls inserted data
         companies = []
-        print(request.is_json)
         if request.is_json:
             company_json = request.get_json()
             csvpath = company_json['csvpath']
         else:
             csvpath = request.args.get('csvpath', '')
 
-        if '.csv' not in csvpath.lower():
+        #if '.csv' not in csvpath.lower():
+        
+            
+        if os.path.isfile(csvpath):
+            with open(csvpath) as f:
+                csv_rows = csv.reader(f, delimiter=';')
+                for row in csv_rows:
+                        # Upper name and five digit text zipcode
+                    name, zipaddress = row[0].upper(), row[1]
+                    if name != 'NAME':
+                        zipaddress = zipaddress.replace(' ', '')
+                        # To validate that only a five digit zipcode will be inserted
+                        if len(zipaddress[: 5]) == 5:
+                            company_obj = Company.add_company(name, zipaddress)
+                            companies.append(
+                                company_obj.__repr__()
+                            )
+
+                return {'message': 'Success, companies added', 'data': companies}, 201
+        else:
             return {'message': 'Cannot process the given file', 'file': csvpath}, 400
-
-        with open(csvpath) as f:
-            csv_rows = csv.reader(f, delimiter=';')
-            for row in csv_rows:
-                    # Upper name and five digit text zipcode
-                name, zipaddress = row[0].upper(), row[1][: 5]
-                if name != 'NAME':
-                    company_obj = Company.add_company(name, zipaddress)
-                    companies.append(
-                        company_obj.__repr__()
-                    )
-
-            return {'message': 'Success, companies added', 'data': companies}, 201

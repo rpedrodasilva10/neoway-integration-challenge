@@ -49,10 +49,18 @@ class TestCompanyModel(unittest.TestCase):
     def test_update_company_website(self):
         website = "https://www.neoway.com.br"
         part_name = 'test website update'
-        zipcode = '5678'
+        zipcode = '56785'
         result = Company.add_company(part_name, zipcode)
 
         Company.update_company_website(result.id, website)
 
         obj = Company.get_company('website', zipcode)
         self.assertEqual(obj.website, website)
+    
+    def test_four_digit_zipcode(self):
+        part_name = 'testing'
+        zipcode= '1234'
+        result = Company.add_company(part_name, zipcode)
+
+        obj = Company.get_company(part_name, zipcode)
+        self.assertEqual(None, result)
