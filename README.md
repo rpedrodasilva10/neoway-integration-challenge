@@ -137,29 +137,29 @@ All responses will have the form:
 
 
 ``` json
-{
-    "message": "Success, companies added",
-    "data": [
-        {
-            "id": 1,
-            "company_name": "TOLA SALES GROUP",
-            "zipcode": "78229",
-            "website": null
-        },
-        {
-            "id": 2,
-            "company_name": "FOUNDATION CORRECTIONS INC",
-            "zipcode": "94002",
-            "website": null
-        },
-        {
-            "id": 3,
-            "company_name": "DWIGHT HARRISON VW",
-            "zipcode": "30078",
-            "website": null
-        },
+{ 
+   "message":"Success, companies added",
+   "data":[ 
+      { 
+         "id":1,
+         "company_name":"TOLA SALES GROUP",
+         "zipcode":"78229",
+         "website":null
+      },
+      { 
+         "id":2,
+         "company_name":"FOUNDATION CORRECTIONS INC",
+         "zipcode":"94002",
+         "website":null
+      },
+      { 
+         "id":3,
+         "company_name":"DWIGHT HARRISON VW",
+         "zipcode":"30078",
+         "website":null
+      }
+   ]
 }
-
 ```
 
 ## Deletes all data from the database
